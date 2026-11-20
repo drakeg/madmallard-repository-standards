@@ -9,7 +9,7 @@ All constructive contributions, including AI-authored PRs, are welcome. Open an 
 3. Add or update unit tests and documentation for behavior changes.
 4. Run `python3 -m unittest discover -s tests -v`, `python3 scripts/audit.py --check` and `python3 scripts/badges.py --mode check`.
 5. Open a PR describing the linked issue, sprint, impact, test evidence, migration needs, rollback, and security considerations.
-6. Require a human review and passing CI before merge; resolve comments, keep changes traceable, and use squash merges where appropriate.
+6. When configured, wait for required CI checks before merge. Formal GitHub Review approval is optional by default: maintainers can click **Merge pull request** directly. Respect any repository-specific branch protections, resolve comments when relevant, keep changes traceable, and use squash merges where appropriate.
 
 ## Definition of Ready
 
@@ -17,6 +17,6 @@ An issue has an owner or clear acceptance process, business/user rationale, boun
 
 ## Definition of Done
 
-Acceptance criteria met; tests and security checks pass; docs/templates updated; badge claims verified; code reviewed; no leaked secrets; release impact recorded; relevant sprint/backlog issue closed or updated.
+Acceptance criteria met; tests and security checks pass; docs/templates updated; badge claims verified; PR checked for scope and correctness; no leaked secrets; release impact recorded; relevant sprint/backlog issue closed or updated.
 
 Accessibility: documentation should use informative headings, descriptive links, legible text, keyboard-accessible examples, and no color-only status communication.

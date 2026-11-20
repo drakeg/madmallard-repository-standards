@@ -39,4 +39,4 @@ Choose **Use this template** on GitHub to start a new repository containing the 
 
 ## Development and governance
 
-Current delivery scope is tracked in [SPRINTS.md](SPRINTS.md) and [BACKLOG.md](BACKLOG.md). [RELEASES.md](RELEASES.md) defines release triggers and semantic versioning; [SECURITY.md](SECURITY.md) explains responsible disclosure. All contributions require a reviewed PR and passing checks. Reuse is encouraged under the repository's [MIT License](LICENSE).
+Current delivery scope is tracked in [SPRINTS.md](SPRINTS.md) and [BACKLOG.md](BACKLOG.md). [RELEASES.md](RELEASES.md) defines release triggers and semantic versioning; [SECURITY.md](SECURITY.md) explains responsible disclosure. Contributions use reviewable PRs and passing required checks; formal GitHub Review approval is optional unless a repository explicitly requires it. Reuse is encouraged under the repository's [MIT License](LICENSE).
