@@ -12,3 +12,14 @@ Scope: this repository and voluntary adopters only. Preserve application archite
 8. Request minimal `contents: read` permissions for validation. Write automations require explicit opting in and narrow `contents: write` / `pull-requests: write` permissions.
 9. Never expose secrets in command output, logs or PR comments. Run local tests and report failures accurately.
 10. Keep changelog/release documentation aligned with SemVer; no release without user-visible change and validated tag.
+
+## Development continuity and commercialization
+
+**Commercialization is an ultimate goal, never a development gate.** The owner explicitly permits build-first, exploratory, personal-use, community, open-source, and "if you build it, they will come" development. Do not require customer interviews, outreach, pricing evidence, revenue, product-market fit, or sales validation before continuing approved implementation.
+
+- Follow **Build → Deploy → Test → Fix → Redeploy → Continue** when a deployment/test environment is available. Do not claim unrun tests or deployments.
+- Read the current Sprint and prioritized backlog; implement the next ready task, satisfy acceptance criteria, test, fix defects, update docs, and proceed to the next ready Sprint or backlog item **within the current authorized execution session**. A completed PR, Sprint, milestone, or release is not a stopping condition.
+- Treat customer discovery, pricing, sales, and outreach as **parallel, optional workstreams**, not prerequisites. Record opportunities honestly; never fabricate demand, customers, feedback, or revenue.
+- If external outreach or another action needs permission, pause **only that action** and continue unrelated authorized work. If a task is blocked, select another ready task rather than declaring the whole project blocked.
+- Make ordinary technical decisions autonomously; ask only for consequential authorization, genuinely missing essential information, or unavoidable dependencies. Maintain CI, security and existing branch protections; formal GitHub PR review approval remains optional by default.
+- Development runs during authorized sessions only. Do not promise unattended/background work or imply activity continues after the session ends.
