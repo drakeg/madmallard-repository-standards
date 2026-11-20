@@ -15,3 +15,5 @@
 | P2 | Additional framework and deployment detectors | Future | Backlog |
 
 Prioritization: P0 blocks usable safe adoption; P1 improves reliability/scale; P2 optional enhancements. Reprioritize through reviewed issues/PRs. Do not infer that a backlog item is complete from its presence here.
+
+Development continuity policy: customer discovery and commercialization are optional parallel initiatives; never block existing ready engineering tasks on customer evidence. A finished Sprint or PR triggers selection of the next ready task within the authorized session.

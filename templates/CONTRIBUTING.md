@@ -20,3 +20,7 @@ An issue has an owner or clear acceptance process, business/user rationale, boun
 Acceptance criteria met; tests and security checks pass; docs/templates updated; badge claims verified; PR checked for scope and correctness; no leaked secrets; release impact recorded; relevant sprint/backlog issue closed or updated.
 
 Accessibility: documentation should use informative headings, descriptive links, legible text, keyboard-accessible examples, and no color-only status communication.
+
+## Continuing work and commercialization
+
+A lack of paying customers, interviews, pricing evidence, market validation, or external outreach is **not a reason to stop development**. Contributors may build-first and pursue personal, open-source, experimental, or commercial goals. Sales/customer discovery can be tracked separately without blocking ready engineering tasks. After each Sprint or PR, continue with the next authorized ready backlog item in the active session. If outreach requires authorization, defer outreach only; continue implementation, testing, fixes, and documentation. Do not invent traction or imply unattended execution outside active sessions.

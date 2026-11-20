@@ -2,7 +2,7 @@
 
 **Vision:** Deliver the smallest reliable, free-to-adopt standards toolkit that lets developers and agents improve many independent repositories without misrepresenting project state or erasing local requirements.
 
-Sprints are planned sequentially; dates and scope are adjusted when contributors' capacity is known. Each sprint records goals, deliverables, acceptance and outcome.
+Sprints are planned sequentially; dates and scope are adjusted when contributors' capacity is known. Continue to the next ready Sprint or backlog task within each authorized execution session; commercial evidence, outreach or revenue is never a prerequisite. Each sprint records goals, deliverables, acceptance and outcome.
 
 ## Sprint 0 — Foundation (initial implementation)
 
