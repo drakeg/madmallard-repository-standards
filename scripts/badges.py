@@ -27,6 +27,9 @@ TECH = {
     "PostgreSQL": ("PostgreSQL", "4169E1", "postgresql"),
     "MariaDB": ("MariaDB", "003545", "mariadb"),
     "Vercel": ("Vercel", "000000", "vercel"),
+    "GitHub Pages": ("GitHub Pages", "222222", "githubpages"),
+    "Vue": ("Vue.js", "4FC08D", "vuedotjs"),
+    "Svelte": ("Svelte", "FF3E00", "svelte"),
 }
 LICENSE_FILES = ("LICENSE", "LICENSE.md", "LICENSE.txt", "COPYING")
 MANIFESTS = ("package.json", "pyproject.toml", "requirements.txt", "go.mod", "Cargo.toml")
@@ -62,6 +65,11 @@ def detected(root: Path) -> list[str]:
         found.update(("Docker", "Docker Compose"))
     if any(root.glob("*.tf")): found.add("Terraform")
     if (root / "vercel.json").exists(): found.add("Vercel")
+    # A Pages workflow is deployment configuration; a GitHub Pages mention in prose is not.
+    for wf in workflows(root):
+        body = read(wf)
+        if re.search(r"(?m)^\s*(?:-?\s*uses:\s*actions/deploy-pages@|environment:\s*github-pages\s*$)", body):
+            found.add("GitHub Pages")
     pkg = read(root / "package.json")
     if pkg:
         try:
@@ -71,11 +79,17 @@ def detected(root: Path) -> list[str]:
         deps = {**obj.get("dependencies", {}), **obj.get("devDependencies", {})} if isinstance(obj, dict) else {}
         if (root / "tsconfig.json").exists() or "typescript" in deps: found.add("TypeScript")
         else: found.add("JavaScript")
-        for name, signal in (("Next.js", "next"), ("React", "react")):
+        for name, signal in (("Next.js", "next"), ("React", "react"), ("Vue", "vue"), ("Svelte", "svelte")):
             if signal in deps: found.add(name)
     py = "\n".join(read(root / n) for n in ("pyproject.toml", "requirements.txt"))
-    for name, pattern in (("Django", r"(?im)^\s*django\s*(?:[=<>!~\[]|$)"), ("FastAPI", r"(?im)^\s*fastapi\s*(?:[=<>!~\[]|$)")):
-        if re.search(pattern, py): found.add(name)
+    # pyproject.toml may express dependencies as a PEP 621 list of quoted strings.
+    # Match packages only at the beginning of a requirement, not arbitrary prose.
+    requirements = read(root / "requirements.txt")
+    pyproject = read(root / "pyproject.toml")
+    for name in ("Django", "FastAPI"):
+        pattern = rf"(?im)^\s*{name}\s*(?:[=<>!~\[]|$)"
+        if re.search(pattern, requirements) or re.search(rf'(?im)^\s*["\']{name}(?:[=<>!~\[]|["\'])', pyproject):
+            found.add(name)
     # Database identification requires explicit local configuration; docs alone are not proof.
     configs = "\n".join(read(root / n) for n in ("compose.yml", "compose.yaml", "docker-compose.yml", "docker-compose.yaml"))
     for name, pattern in (("PostgreSQL", r"(?im)^\s*image:\s*['\"]?postgres(?::|@|['\"]?\s*$)"),
@@ -107,7 +121,10 @@ def generate(root: Path) -> str:
             url = f"https://github.com/{slug}/actions/workflows/{path}"
             second.append(f"[![{workflow.stem}](https://github.com/{slug}/actions/workflows/{path}/badge.svg)]({url})")
         license_name = next((p for p in LICENSE_FILES if (root / p).is_file()), None)
-        if license_name:
+        if license_name and re.search(
+            r"(?i)(MIT License|Apache License|GNU GENERAL PUBLIC LICENSE|BSD [23]-Clause|Mozilla Public License|ISC License|Eclipse Public License|Creative Commons)",
+            read(root / license_name),
+        ):
             second.append(f"[![License](https://img.shields.io/github/license/{slug})](https://github.com/{slug}/blob/HEAD/{license_name})")
         # Releases badge only after independently verifying an actual published release.
         if cmd("gh", "release", "view", "--repo", slug, "--json", "tagName", "--jq", ".tagName", cwd=root):
