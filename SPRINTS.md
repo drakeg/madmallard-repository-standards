@@ -12,13 +12,15 @@ Sprints are planned sequentially; dates and scope are adjusted when contributors
 - [x] README / AGENTS / CONTRIBUTING / SPRINTS / BACKLOG / RELEASES / SECURITY / adoption docs
 - [x] Conservative Python badge generator and standards auditor with repeatable CLI
 - [x] Automated unit tests and GitHub Actions read-only validation
-- [ ] PR review and initial merge (pending maintainer review)
+- [x] Initial PR merged (formal review approval optional)
 
 **Acceptance:** Two consecutive badge updates produce no second diff; invalid badge markers fail safely; validation workflow passes; application README text is retained.
 
 ## Sprint 1 — Broader detection and validation
 
 **Goal:** Increase detection accuracy with fixture-backed language/framework/database detection, structured reporting, improved version verification, and a schema for policy exceptions.
+
+**Progress:** Expanded fixture-backed framework/deployment detection and guarded against placeholder license claims. Remaining work: structured reports, policy exceptions, version verification.
 
 **Acceptance:** More representative fixture tests with zero fabricated status/version/license claims; check mode identifies drift without editing.
 

@@ -2,10 +2,10 @@
 
 | Priority | Item | Target | Status |
 | --- | --- | --- | --- |
-| P0 | Create template repository and fundamental docs | Sprint 0 | Implemented, awaiting PR |
-| P0 | Idempotent badge generator, dry-run, write, check | Sprint 0 | Implemented, awaiting PR |
-| P0 | Local multi-repo audit, tests, CI | Sprint 0 | Implemented, awaiting PR |
-| P1 | Manifest/version detection fixture matrix | Sprint 1 | Planned |
+| P0 | Create template repository and fundamental docs | Sprint 0 | Completed |
+| P0 | Idempotent badge generator, dry-run, write, check | Sprint 0 | Completed |
+| P0 | Local multi-repo audit, tests, CI | Sprint 0 | Completed |
+| P1 | Manifest/version detection fixture matrix | Sprint 1 | In progress |
 | P1 | Structured audit output and policy exceptions | Sprint 1 | Planned |
 | P1 | Verify release metadata and license detection across naming variants | Sprint 1 | Planned |
 | P1 | PR-only adoption bot with repo allowlist and minimum permissions | Sprint 2 | Planned |
